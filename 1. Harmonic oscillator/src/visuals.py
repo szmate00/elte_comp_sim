@@ -3,7 +3,7 @@
 # @Máte Szűcs, 2022                                                   #
 #######################################################################
 
-import os
+
 import numpy as np
 import matplotlib. pyplot as plt
 
@@ -63,13 +63,25 @@ def createPlots(input: str, outPath: str, x0: float=10., v0: float=10., omega: f
     plt.legend(loc='upper left')
     plt.savefig(f'{outPath}/kit_ido.png', dpi=100)
 
-    # Kitérés-sebesség
+    # Sebesség-idő
     plt.figure(figsize=(10, 5))
     plt.plot(tE, vE, label='Euler módszer')
     plt.plot(tEC, vEC, label='Euler-Cromer módszer')
     plt.plot(tE, [v(x0, v0, omega, i) for i in tE], '--', alpha=0.9, label='Analitikus megoldás')
 
     plt.xlabel('$t~[s]$', size=18)
+    plt.ylabel('$v(t)$', size=18)
+    plt.title('$x_0=10, v_0=10, \omega=13$', size=18)
+    plt.legend(loc='upper left')
+    plt.savefig(f'{outPath}/seb_ido.png', dpi=100)
+
+    # Kitérés-sebesség
+    plt.figure(figsize=(10, 5))
+    plt.plot(xE, vE, label='Euler módszer')
+    plt.plot(xEC, vEC, label='Euler-Cromer módszer')
+    plt.plot([x(x0, v0, omega, i) for i in tE], [v(x0, v0, omega, i) for i in tE], '--', alpha=0.9, label='Analitikus megoldás')
+
+    plt.xlabel('$x(t)$', size=18)
     plt.ylabel('$v(t)$', size=18)
     plt.title('$x_0=10, v_0=10, \omega=13$', size=18)
     plt.legend(loc='upper left')

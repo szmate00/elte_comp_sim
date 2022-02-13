@@ -17,7 +17,7 @@ int main(int argc, char const *argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    const double pi = 4 * atan(10);
+    constexpr double pi = 4 * atan(10);
     
     double x0 = std::stod(argv[1]);
     double v0 = std::stod(argv[2]);
