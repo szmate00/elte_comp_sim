@@ -80,8 +80,8 @@ def createPlots(input: str, outPath: str, x0: float=10., v0: float=10., omega: f
     plt.plot(nERun, tERun, 'o-', label='Euler módszer')
     plt.plot(nECRun, tECRun, 'o-', label='Euler-Cromer módszer')
 
-    plt.ylabel('futási idő [ms]', size=18)
-    plt.xlabel('lépések száma', size=18)
+    plt.ylabel('futási idő $[ms]$', size=18)
+    plt.xlabel('lépések száma $[10^6]$', size=18)
     plt.title('$x_0=10, v_0=10, \omega=13$', size=18)
     plt.legend(loc='upper left')
     plt.savefig(f'{outPath}/futas.png', dpi=100)
